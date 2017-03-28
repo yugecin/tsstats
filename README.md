@@ -18,9 +18,9 @@ See [yugecin/tsstats-webviewer](https://github.com/yugecin/tsstats-webviewer) fo
 * MySQL/MariaDB
 
 ### Installation
-* Get a database and import tsstats.sql
-* Copy tsstats.sample.ini to tsstats.ini and edit everything as needed
-* For the db user, it only needs SELECT,INSERT,UPDATE,DELETE privileges, but ALTER might be useful if some structures ever change (probably not)
+* Get a database and import <kbd>tsstats.sql</kbd>
+* Copy <kbd>tsstats.sample.ini</kbd> to <kbd>tsstats.ini</kbd> and edit everything as needed
+* For the db user, it only needs `SELECT,INSERT,UPDATE,DELETE` privileges, but `ALTER` might be useful if some structures ever change (probably not)
 * Start the bot (`nohup java -jar tsstats.jar&` on a unix system)
 * Optionally: make a cron job to restart the bot (see notes)
 
