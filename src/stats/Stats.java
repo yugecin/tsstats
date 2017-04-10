@@ -126,7 +126,7 @@ public class Stats {
 
 	public void addUser(String uid, String username, String country){
 		try {
-			Statement s = db.createStatement(true, "INSERT INTO `users` (`uid`,`currentname`,`country`,`updates`,`lastonline`) VALUES (?,?,?,?,UNIX_TIMESTAMP()) ON DUPLICATE KEY UPDATE `country`=?");
+			Statement s = db.createStatement(true, "INSERT INTO `users` (`uid`,`currentname`,`country`,`updates`,`lastonline`) VALUES (?,?,?,?,UNIX_TIMESTAMP()) ON DUPLICATE KEY UPDATE `country`=?, lastonline=UNIX_TIMESTAMP()");
 			s.setString(1, uid);
 			s.setUnicode(2, username);
 			s.setString(3, country);
