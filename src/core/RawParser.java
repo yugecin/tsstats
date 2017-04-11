@@ -94,17 +94,19 @@ public class RawParser {
 			NotifyClientLeftView nclv = TSParser.parseClientLeftView(response);
 			if (nclv.clid != this.myid){
 				
+				String uid = getuid(nclv.clid);
 				//reason: 3 = timeout, 5 = kick, 6 = ban, 8 = left
 				if (nclv.reasonid == 3){ //timeout
-					con.stats.addTimeout(getuid(nclv.clid));
+					con.stats.addTimeout(uid);
 				} else if (nclv.reasonid == 5){ //kick
-					con.stats.addKick(getuid(nclv.clid), nclv.invokeruid, nclv.reasonmsg);
+					con.stats.addKick(uid, nclv.invokeruid, nclv.reasonmsg);
 				} else if (nclv.reasonid == 6){ //ban
-					con.stats.addBan(getuid(nclv.clid), nclv.invokeruid, nclv.reasonmsg, nclv.bantime);
+					con.stats.addBan(uid, nclv.invokeruid, nclv.reasonmsg, nclv.bantime);
 				} else if (nclv.reasonid == 8){ //left
 					// /care
 				}
-
+				
+				con.stats.updateLastOnline(uid);
 				con.clientlist.remove(getuid(nclv.clid));
 			}
 			

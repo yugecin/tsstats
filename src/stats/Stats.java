@@ -144,6 +144,16 @@ public class Stats {
 			Logger.err.println("Ex addUser", e);
 		}
 	}
+	
+	public void updateLastOnline(String uid) {
+		try {
+			Statement s = db.createStatement(true, "UPDATE `users` SET `lastonline`=UNIX_TIMESTAMP() WHERE `uid`=?");
+			s.setString(1, uid);
+			s.executeUpdate();
+		} catch (Exception e) {
+			Logger.err.println("Ex updateLastOnline", e);
+		}
+	}
 
 	public void addTimeout(String uid){
 		try {
