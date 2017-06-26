@@ -25,6 +25,23 @@ See [yugecin/tsstats-webviewer](https://github.com/yugecin/tsstats-webviewer) fo
 * Start the bot (`nohup java -jar tsstats.jar&` on a unix system)
 * Optionally: make a cron job to restart the bot (see notes)
 
+### Getting query login details
+* Connect to you ts server
+* (Make sure you have enough permissions)
+* Tools > ServerQuery Login
+* Enter a username (this will be your queryuser)
+* A password will be generated (this will be your querypass)
+
+### Getting the bot to show in your client
+* If you toolbar is hidden, right-click the menu and click 'Toolbar'
+* Right-click the toolbar and click 'Customize Toolbar'
+* Find 'Toggle ServerQueryClients' in the left list and select it
+* Press the arrow pointed to the right to add that action to the toolbar and close the dialog
+* Press the 'Toggle ServerQueryClients' button (the blue S) to unhide server query clients.
+
+### PSA
+Your server query login is you! If you demote a query user that uses your credentials (i.e. the statsbot), **then you are demoting yourself**! Don't mess with a query user's servergroup.
+
 ### License
 [GPL-3.0](/LICENSE)
 
