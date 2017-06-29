@@ -16,7 +16,7 @@ Notes
 
 Requirements
 ------------
-* Teamspeak server query login with some permissions < TODO (make sure it gets passed the flood/spam filter)
+* Teamspeak server query login with some permissions < TODO (make sure it gets passed the flood/spam filter, adding the ip/hostname to your server's `query_ip_whitelist.txt` might be a good idea)
 * Some java runtime
 * MySQL/MariaDB
 
