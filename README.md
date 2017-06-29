@@ -43,6 +43,7 @@ Getting the bot to show in your client
 * Find 'Toggle ServerQueryClients' in the left list and select it
 * Press the arrow pointed to the right to add that action to the toolbar and close the dialog
 * Press the 'Toggle ServerQueryClients' button (the blue S) to unhide server query clients.
+* (permissions!)
 
 PSA
 ---
