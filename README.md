@@ -7,6 +7,7 @@ Examples/Demo
 -------------
 * [https://tsstats.thisisgaming.org/](https://tsstats.thisisgaming.org/) (since 24/08/2014)
 * [http://exp-gaming.net/teamspeak/](http://exp-gaming.net/teamspeak/) (since 01/05/2017)
+* [http://stats.sonic-server.net/](http://stats.sonic-server.net/) (since 01/01/2018)
 * *do you use this? let me know, and I'll put a link here if you want*
 
 Notes
