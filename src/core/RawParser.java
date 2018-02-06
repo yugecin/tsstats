@@ -163,7 +163,14 @@ public class RawParser {
 						con.send(TSAction.move(client.clid, campchan)); // if not, move my ass
 					}
 				}
-			} else {
+			}
+
+			else if(Config.inList("ignore", client.uid)) {
+				//if uid shall be ignored (config file)
+				//DO NOTHING
+			}
+
+			else {
 				con.clientlist.put(client.uid, client); //add to le list
 			}
 		}
