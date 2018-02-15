@@ -19,6 +19,8 @@ package core;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import tsadapter.TSAction;
 import tsadapter.TSParser;
@@ -165,7 +167,7 @@ public class RawParser {
 				}
 			}
 
-			else if(Config.inList("ignore", client.uid)) {
+			else if(Config.inList("igclient", client.uid)) {
 				//if uid shall be ignored (config file)
 				//DO NOTHING
 			}
@@ -180,9 +182,14 @@ public class RawParser {
 		//cid=1 pid=0 channel_order=0 channel_name=Rules\s(No\sTalk\sChannel) channel_topic=Public total_clients_family=1 channel_maxclients=-1 channel_maxfamilyclients=-1 total_clients=1 channel_needed_subscribe_power=0|cid=213 pid=0 channel_order=1 channel_name=Public\sChannel\s-Basdon-\sOpeningstijden channel_topic total_clients_family=0 channel_maxclients=-1 channel_maxfamilyclients=-1 total_clients=0 channel_needed_subscribe_power=0|cid=10 pid=0 channel_order=213 channel_name=Tribunal\s(server-rechtbank) channel_topic total_clients_family=0 channel_maxclients=-1 channel_maxfamilyclients=-1 total_clients=0 channel_needed_subscribe_power=0
 		con.chanlist.clear();
 		int order = 0; //own order, cuz order in params unknown?
+		final Pattern pattern = Pattern.compile("^\\D+(\\d+).*");
+		Matcher match;
 		for (String c : list.split("\\|")){
-			Channel p = TSParser.parseChannel(c, ++order);
-			con.chanlist.put(p.cid, p);
+			match = pattern.matcher(c);
+			if (!match.find() || !Config.inList("igchannel", match.group(1))) { //if cid is in ignore lis >> DO NOTHING
+				Channel p = TSParser.parseChannel(c, ++order);
+				con.chanlist.put(p.cid, p);
+			}
 		}
 	}
 	
