@@ -1,6 +1,6 @@
 /*
  * Bot for teamspeak3 to collect data for generating statistics
- * Copyright (C) 2014-2017  Robin C.
+ * Copyright (C) 2014-2022  Robin C.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -168,7 +168,7 @@ public class Stats {
 	public void addKick(String uid, String invokeruid, String reason){
 		if(reason == null || reason.length() == 0) reason = "-";
 		try {
-			Statement s = db.createStatement(true, "INSERT INTO `kicks`(`uid`,`invokeruid`,`reason`,`time`) VALUES (?,?,?,UNIX_TIMESTAMP())'");
+			Statement s = db.createStatement(true, "INSERT INTO `kicks`(`uid`,`invokeruid`,`reason`,`time`) VALUES (?,?,?,UNIX_TIMESTAMP())");
 			s.setString(1, uid);
 			s.setString(2, invokeruid);
 			s.setUnicode(3, reason);
