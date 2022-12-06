@@ -1,6 +1,6 @@
 /*
  * Bot for teamspeak3 to collect data for generating statistics
- * Copyright (C) 2014-2017  Robin C.
+ * Copyright (C) 2014-2022  Robin C.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@ package core;
 import java.util.Calendar;
 
 import logging.Logger;
+import main.Config;
 
 public class Job extends Thread {
 
@@ -44,6 +45,8 @@ public class Job extends Thread {
 				if ((m-1)%5 == 0 && lastMinute != m) { // om de 5 minten, @1,6,11,16,21,26,31,36,41,46,51,56 (hence the (m-1)%5)
 					lastMinute = m;
 					con.update();
+				} else if (Config.getBool("experimental_forcekeepalive")) {
+					con.keepalive();
 				}
 			} catch (InterruptedException e) {
 				Logger.err.println("InterruptedException in job", e);

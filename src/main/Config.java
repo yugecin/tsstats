@@ -1,6 +1,6 @@
 /*
  * Bot for teamspeak3 to collect data for generating statistics
- * Copyright (C) 2014-2017  Robin C.
+ * Copyright (C) 2014-2022  Robin C.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,8 +43,8 @@ public class Config {
 				continue;
 			}
 			
-			if (line.matches("^[a-zA-Z0-9]+: ?.*?$")) {
-				String info[] = line.replaceAll("^([a-zA-Z0-9]+): ?(.*?)$", "$1 $2").split(" ", 2);
+			if (line.matches("^[_a-zA-Z0-9]+: ?.*?$")) {
+				String info[] = line.replaceAll("^([_a-zA-Z0-9]+): ?(.*?)$", "$1 $2").split(" ", 2);
 				kv.put(info[0], info[1]);
 			}
 		}

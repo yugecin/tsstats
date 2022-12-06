@@ -1,6 +1,6 @@
 /*
  * Bot for teamspeak3 to collect data for generating statistics
- * Copyright (C) 2014-2017  Robin C.
+ * Copyright (C) 2014-2022  Robin C.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -201,4 +201,7 @@ public class Connection {
 		fifo.add("updateyo");
 	}
 
+	public void keepalive() {
+		send("whoami");
+	}
 }
