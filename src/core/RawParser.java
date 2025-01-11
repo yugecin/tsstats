@@ -182,7 +182,9 @@ public class RawParser {
 		int order = 0; //own order, cuz order in params unknown?
 		for (String c : list.split("\\|")){
 			Channel p = TSParser.parseChannel(c, ++order);
-			con.chanlist.put(p.cid, p);
+			if (!Config.inList("ignorechannels", String.valueOf(p.cid))) {
+				con.chanlist.put(p.cid, p);
+			}
 		}
 	}
 	
